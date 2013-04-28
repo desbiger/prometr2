@@ -1,0 +1,27 @@
+.form_reg .name{
+    position: relative;
+    right: 10px;
+    top: 30%;
+    margin-left: 10px;
+}
+.form_reg {
+    position: relative;
+}
+.form_reg .name .User_name{
+    float: left;
+}
+.form_reg .name .user_panel_m2{
+    position: absolute;
+    top: -9px;
+    right: 10px;
+    display: table-cell;
+    vertical-align: middle;
+    height: 35px;
+    width: 250px;
+    text-align: right;
+}
+.name a{
+    font-family: arial;
+    font-size: 10px;
+    color: #2986C0;
+}

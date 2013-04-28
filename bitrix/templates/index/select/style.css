@@ -1,0 +1,15 @@
+html,body{margin:0;padding:0}
+.select1  {
+	width:410px;
+	height:32px;
+	color:#909090;
+	font:12px Arial, Tahoma, Helvetica, Verdana;
+	text-align:left;
+	background:url(images/sel1.png) no-repeat;
+	line-height:30px;
+	white-space:nowrap; /* запрещаем перенос */
+	padding:0 22px 0 12px; /* отступ справа с учетом стрелочки */
+	border:0;
+	zoom:1; /* для IE6 */
+	margin:3px 0 5px 0;
+}

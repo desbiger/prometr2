@@ -1,0 +1,23 @@
+.ancers h2{
+    font-size: 15px;
+}
+.ancers .item{
+    border-top: 1px dotted grey;
+    border-bottom: 1px dotted grey;
+    border-collapse: collapse;
+    margin-bottom: 5px;
+    overflow: hidden;
+}
+.ancers .item div{
+    padding: 7px;
+}
+.item a{
+    color:black;
+    font-weight: bold;
+}
+.ancers .post{
+    margin-top: 20px;
+}
+.ancers span{
+    font-size: 10px;
+}

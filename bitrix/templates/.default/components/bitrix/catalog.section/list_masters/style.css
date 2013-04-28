@@ -1,0 +1,19 @@
+.masters{
+    overflow: hidden;
+    /*width: 800px;*/
+    margin-top: 20px;
+    border-top: 1px dotted grey;
+    padding-top: 10px;
+}
+.master{
+    margin: 7px;
+    float: left;
+}
+.master h3{
+    font-size: 19px;
+}
+.master .master_img{
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+}

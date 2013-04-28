@@ -1,0 +1,20 @@
+.about_me{
+
+}
+.detail_img{
+    float: left;
+    margin: 10px;
+}
+.personal_page{
+
+}
+.personal_page h2{
+    font-size: 20px;
+}
+.gallery_img{
+    float: left;
+    width: 150px;
+    height: 150px;
+    overflow: hidden;
+    margin: 4px;
+}

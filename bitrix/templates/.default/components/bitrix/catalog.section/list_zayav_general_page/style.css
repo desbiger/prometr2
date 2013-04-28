@@ -1,0 +1,33 @@
+.list_zayav{
+    clear: both;
+    margin-top: 20px;
+}
+.list_zayav h2{
+    font-size: 19px;
+}
+.list_zayav a{
+    color: #454547;
+}
+.list_zayav div{
+    position: relative;
+    with: 100%;
+    /*background-color: green;*/
+    padding: 7px;
+    overflow: hidden;
+}
+.list_zayav span{
+    position: absolute;
+    left: 13px;
+    top: -2px;
+}
+.list_zayav div .inside{
+    float: left;
+    margin: 0;
+    text-align: justify;
+    width: 100px;
+}
+hr{
+    border: none;
+    border-top: 1px dotted #AEAFB1;
+    border-collapse: collapse;
+}

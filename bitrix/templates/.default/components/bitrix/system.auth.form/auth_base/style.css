@@ -9,10 +9,13 @@
 }
 .form_reg .name .User_name{
     float: left;
+    top: 16px;
+    position: absolute;
+    left: 10px;
 }
 .form_reg .name .user_panel_m2{
     position: absolute;
-    top: -9px;
+    /*top: -9px;*/
     right: 10px;
     display: table-cell;
     vertical-align: middle;

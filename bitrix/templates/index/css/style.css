@@ -135,15 +135,15 @@
     margin-top: 8px;
 }
 
-.form_reg form input[type="submit"] {
+.form_reg form input[type="submit"], input[type=button] {
     background-image: url("../img/but.png");
-    width: 83px;
+    /*width: 83px;*/
     height: 29px;
     border: 0;
     cursor: pointer;
     margin-left: 3px;
-    position: absolute;
-    top: 8px;
+    /*position: absolute;*/
+    top: 0px;
     right: 120px;
     color: white;
 }
@@ -161,11 +161,11 @@
 }
 
 .pass_a {
-    top: 8px;
+    top: 1px;
 }
 
 .reg_a {
-    top: 22px;
+    top: 17px;
     right: 39px;
 }
 
@@ -579,4 +579,17 @@
 
 .four .check_left {
     background-image: url("../img/str4x.jpg") !important;
+}
+
+
+.re{
+    position: absolute;
+    right: 12px;
+    float: left;
+    top: 9px;
+
+}
+.reg_content{
+    position: relative;
+    width: 650px;
 }

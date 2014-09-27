@@ -3,7 +3,7 @@
 <ul class="left_menu">
     <?foreach ($arResult['SECTIONS'] as $vol): ?>
     <li class="<?=$vol['UF_KLASS']?>">
-        <img src="<?=$vol['PICTURE']['SRC']?>"/>
+        <img src="<?=CFile::GetPath($vol['PICTURE'])?>"/>
         <a href="<?=$vol['SECTION_PAGE_URL']?>"><?=$vol['NAME']?></a>
         <span></span>
     </li>

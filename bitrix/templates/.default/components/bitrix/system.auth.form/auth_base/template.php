@@ -15,7 +15,7 @@
 			</form>
 		</div>
 		<div class = "re">
-			<input type = "button" value = "Подать заявку"/>
+			<input type = "button" class="base_button" value = "Подать заявку"/>
 		</div>
 	</div>
 <? else: ?>
@@ -48,8 +48,9 @@
 
 		</div>
 		<div class = "re">
-			<input type = "button" value = "Подать заявку"/>
+			<input type = "button" class="base_button" value = "Подать заявку"/>
 		</div>
+
 
 	</div>
 <?endif ?>

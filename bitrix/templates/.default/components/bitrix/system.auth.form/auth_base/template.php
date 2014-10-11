@@ -1,6 +1,13 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
 	die();
 } ?>
+	<script type = "text/javascript">
+		$(function(){
+			$('input[type=button]').click(function(){
+				window.document.location.href = '/user/';
+			})
+		})
+	</script>
 <? if ($USER->GetLogin() == ''): ?>
 	<div class = "form_reg">
 		<div class = "reg_content">
@@ -11,7 +18,7 @@
 				Пароль: <input type = "password" name = "USER_PASSWORD" maxlength = "50" size = "17"/>
 				<input type = "submit" value = "Войти">
 				<a class = "pass_a" href = "/">Забыли пароль?</a>
-				<a class = "reg_a" href = "/user/reg.php?backurl=/user/cabinet/">Регистрация</a>
+				<a class = "reg_a" href = "/user/master-reg.php">Регистрация</a>
 			</form>
 		</div>
 		<div class = "re">

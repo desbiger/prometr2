@@ -1,13 +1,13 @@
 <? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
 	die();
 } ?>
-<!--<pre>--><?// print_r($arResult) ?><!--</pre>-->
+<!--<pre>--><? // print_r($arResult) ?><!--</pre>-->
 <?foreach ($arResult['ITEMS'] as $vol) {
-	if ($vol['IBLOCK_SECTION_ID'] == 5) {
-		$stroy[] = $vol;
-	}
-	elseif ($vol['IBLOCK_SECTION_ID'] == 6) {
+	if ($vol['IBLOCK_SECTION_ID'] == 6) {
 		$rem[] = $vol;
+	}
+	elseif ($vol['IBLOCK_SECTION_ID'] == 5) {
+		$stroy[] = $vol;
 	}
 	elseif ($vol['IBLOCK_SECTION_ID'] == 7) {
 		$arch[] = $vol;
@@ -70,12 +70,12 @@
 <div class = "list_zayav">
 	<h2>Последние заявки</h2>
 
-	<div class = "stro header_block">СТРОИТЕЛЬСТВО</div>
-	<hr>
-	<? template_print($stroy) ?>
 	<div class = "rem header_block">РЕМОНТ</div>
 	<hr>
 	<? template_print($rem) ?>
+	<div class = "stro header_block">СТРОИТЕЛЬСТВО</div>
+	<hr>
+	<? template_print($stroy) ?>
 	<div class = "arhitect  header_block">АРХИТЕКУТРА И ДИЗАЙН</div>
 	<hr>
 	<? template_print($arch) ?>

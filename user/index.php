@@ -1,0 +1,9 @@
+<?
+require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
+$APPLICATION->SetTitle("пользователь");
+?><?$APPLICATION->IncludeComponent(
+	"sakharov:zayav.add",
+	"",
+	Array(
+	)
+);?><br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

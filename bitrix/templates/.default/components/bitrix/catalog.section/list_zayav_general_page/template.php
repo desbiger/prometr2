@@ -35,8 +35,8 @@
 			if ($vol['PROPERTIES']['PHOTO']['VALUE']) {
 				$img = CFile::ResizeImageGet($vol['PROPERTIES']['PHOTO']['VALUE'], array(
 						"width" => 120,
-						"height" => 300
-				));
+						"height" => 120
+				),BX_RESIZE_IMAGE_EXACT);
 			}
 			else {
 				$pic = GetSectionImage($vol['IBLOCK_SECTION_ID']);

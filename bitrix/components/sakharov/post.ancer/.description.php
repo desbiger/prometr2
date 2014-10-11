@@ -8,11 +8,11 @@ $arComponentDescription = array(
 	"SORT" => 10,
 	"CACHE_PATH" => "Y",
 	"PATH" => array(
-		"ID" => "", // for example "my_project"
-		/*"CHILD" => array(
-			"ID" => "", // for example "my_project:services"
-			"NAME" => "",  // for example "Services"
-		),*/
+		"ID" => "Отклики", // for example "my_project"
+		"CHILD" => array(
+			"ID" => "post.ancer", // for example "my_project:services"
+			"NAME" => "Отклик на объявление",  // for example "Services"
+		),
 	),
 	"COMPLEX" => "N",
 );

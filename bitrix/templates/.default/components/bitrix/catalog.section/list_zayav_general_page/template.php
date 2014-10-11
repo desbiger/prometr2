@@ -16,6 +16,7 @@
 		$des[] = $vol;
 	}
 }
+
 	function template_print($var)
 	{
 		$images = array(
@@ -30,30 +31,46 @@
 		<? if ($i++ < 5): ?>
 			<?$temp  = CIBlockSection::GetByID($vol['IBLOCK_SECTION_ID']);
 			$section = $temp->GetNext();?>
-			<? $img = CFile::ResizeImageGet($vol['PROPERTIES']['PHOTO']['VALUE'], array(
-					"width" => 120,
-					"height" => 300
-			));
-
-			if (!(bool)$img['src']) {
-				$img['src'] = $images[$vol['IBLOCK_SECTION_ID']];
+			<?
+			if ($vol['PROPERTIES']['PHOTO']['VALUE']) {
+				$img = CFile::ResizeImageGet($vol['PROPERTIES']['PHOTO']['VALUE'], array(
+						"width" => 120,
+						"height" => 300
+				));
 			}
+			else {
+				$pic = GetSectionImage($vol['IBLOCK_SECTION_ID']);
+				$img = CFile::ResizeImageGet($pic, array(
+						'width' => 120,
+						'height' => 300
+				));
+			};
+
 
 			?>
+
 			<div>
 				<div class = "inside">
 
-					<a class = "fancy" href = "<?= CFile::GetPath($vol['PROPERTIES']['PHOTO']['VALUE']) ?>">
+					<? if (CFile::GetPath($vol['PROPERTIES']['PHOTO']['VALUE'])): ?>
+						<a class = "fancy" href = "<?= CFile::GetPath($vol['PROPERTIES']['PHOTO']['VALUE']) ?>">
+							<div style = "width: 120px; height: 90px; overflow: hidden;">
+								<img src = "<?= $img['src'] ? $img['src'] : "/bitrix/templates/index/img/noimage.jpg" ?>" align = "">
+							</div>
+						</a>
+					<? else: ?>
 						<div style = "width: 120px; height: 90px; overflow: hidden;">
-							<img src = "<?= $img['src'] != '' ? $img['src'] : "upload/iblock/ad5/ad56b03444c36cb4ad93d3f2bb9f2463.jpg" ?>" align = "">
+							<img src = "<?= $img['src'] ? $img['src'] : "/bitrix/templates/index/img/noimage.jpg" ?>" align = "">
 						</div>
-					</a>
+					<?endif ?>
 				</div>
 				<div class = "inside" style = "width:460px;">
 
-					<h2><a href = "<?= $section['CODE'] ?>/<?= $vol['ID'] ?>/"><?= $vol['NAME'] ?>
-							<?= $vol['PROPERTIES']['PRICE']['VALUE'] != '' ? "(" . $vol['PROPERTIES']['PRICE']['VALUE'] . ")" : "" ?>
-						</a></h2>
+					<h2>
+						<a href = "<?= $section['CODE'] ?>/<?= $vol['ID'] ?>/">
+							<?= $vol['NAME'] ?> <?= $vol['PROPERTIES']['PRICE']['VALUE'] != '' ? "(" . $vol['PROPERTIES']['PRICE']['VALUE'] . " руб.)" : "" ?>
+						</a>
+					</h2>
 					<?= substr($vol['PREVIEW_TEXT'], 0, 100) ?>...<br><br>
 					<strong style = "font-weight: bold; color: #26AB30;">Дата размещения:
 					</strong><?= str_replace(" ", "&nbsp&nbsp&nbsp", $vol['DATE_CREATE']) ?>

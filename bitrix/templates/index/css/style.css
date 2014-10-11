@@ -620,5 +620,9 @@ image[type=file] {
 }
 
 input[type=file] {
-display: none;
+    display: none;
+}
+
+.inside h2 a{
+    text-decoration: none;
 }

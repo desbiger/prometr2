@@ -52,22 +52,22 @@
 }
 
 .first {
-    /*background-image: url("../img/first.jpg");*/
+    background-image: url("../img/first.jpg");
     background-repeat: no-repeat;
 }
 
 .two {
-    /*background-image: url("../img/two.jpg");*/
+    background-image: url("../img/two.jpg");
     background-repeat: no-repeat;
 }
 
 .free {
-    /*background-image: url("../img/free.jpg");*/
+    background-image: url("../img/free.jpg");
     background-repeat: no-repeat;
 }
 
 .four {
-    /*background-image: url("../img/four.jpg");*/
+    background-image: url("../img/four.jpg");
     background-repeat: no-repeat;
     border-bottom: 1px dotted #aeafb1;
 }

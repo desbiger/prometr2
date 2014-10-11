@@ -8,8 +8,8 @@ $images = array(
 	'8' => '/upload/iblock/1aa/1aa43201338bc95751635375fd0f125a.jpg',
 );
 ?>
-<!--<pre>--><?//print_r($arResult['ITEMS'])?><!--</pre>-->
-
+<!--<pre>--><?//print_r($arResult)?><!--</pre>-->
+<div class="<?=$arResult['UF_STYLE_BLOCK']?> header_block" style="height: 18px"><?=$arResult['NAME']?></div>
 <div class = "list_zayav">
 
 	<hr>

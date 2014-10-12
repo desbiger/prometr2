@@ -33,8 +33,13 @@
 				$us  = $res->Fetch();
 				echo $us['LOGIN'];
 			}
-			else {
-				echo $value['NAME'] == 'Стоимость' ? $value['VALUE'] ." руб" :$value['VALUE'];
+			elseif ($value['NAME'] == 'Стоимость') {
+				echo $value['VALUE'] . " руб";
+			}
+			elseif ($value['NAME'] == 'Город') {
+				echo City::factory($value['VALUE']);
+			}else{
+				echo $value['VALUE'];
 			}
 			?><br>
 		<? endif ?>

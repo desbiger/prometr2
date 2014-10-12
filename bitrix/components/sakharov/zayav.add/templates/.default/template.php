@@ -52,7 +52,7 @@
 
 		<tr>
 			<td>Заголовок заявки</td>
-			<td><input type = "text" style = "width: 412px"/></td>
+			<td><input type = "text" style = "width: 412px" name="title"/></td>
 		</tr>
 		<tr>
 			<td>Текст заявки</td>
@@ -61,6 +61,13 @@
 		<tr>
 			<td>Предположительная стоимость</td>
 			<td><input type = "text" name = "price" style = "width: 75px"/> руб.</td>
+		</tr>
+		<tr>
+			<td style="vertical-align: middle">Фото</td>
+			<td>
+				<div class="file_upload"></div>
+				<input type = "file" name="file"/>
+			</td>
 		</tr>
 		<tr>
 			<td></td>

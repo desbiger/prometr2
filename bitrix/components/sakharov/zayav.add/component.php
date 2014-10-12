@@ -2,17 +2,32 @@
 	die();
 }
 	if ($user = $USER->GetID()) {
-		$arResult['USER'] = $USER->GetByID($user)
-				->Fetch();
+		$arResult['USER'] = $USER->GetByID($user)->Fetch();
 		CModule::IncludeModule('iblock');
-		$el = new CIBlockElement();
-		$fields = array(
-			'NAME' => $_POST['name'],
-			'NAME' => $_POST['name'],
-			'NAME' => $_POST['name'],
-			'NAME' => $_POST['name'],
-			'NAME' => $_POST['name'],
+		$el     = new CIBlockElement();
+		$PROPS  = Array(
+				'PHONE' => $_POST['phone'],
+				'CITY' => $_POST['city'],
+				'PRICE' => $_POST['price'],
+				'USER' => $user,
+				'USER_NAME' => $_POST['name'],
 		);
+		$fields = array(
+				'IBLOCK_ID' => 5,
+				'NAME' => $_POST['title'],
+				'IBLOCK_SECTION_ID' => $_POST['section'],
+				'DETAIL_TEXT' => $_POST['text'],
+				'PROPERTY_VALUES' => $PROPS
+		);
+
+		if ($id = $el->Add($fields)) {
+			$code = Section::factory($_POST['section'])
+					->GetSectionCode();
+			LocalRedirect('/' . $code . '/' . $id . '/');
+		}
+		else {
+			print_r($el->LAST_ERROR);
+		}
 	}
 	else {
 		if (GetUserByEmail($_POST['email'])) {

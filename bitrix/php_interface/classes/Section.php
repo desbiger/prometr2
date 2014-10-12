@@ -48,5 +48,9 @@
 				return "Секция не определена";
 			};
 		}
+		function GetSectionCode(){
+			$section = CIBlockSection::GetByID($this->section)->Fetch();
+			return $section['CODE'];
+		}
 	}
  

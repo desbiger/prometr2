@@ -3,7 +3,12 @@ require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Разделы");
 ?>
 
-
+<?$APPLICATION->IncludeComponent(
+	"bitrix:breadcrumb",
+	"",
+	Array(
+	)
+);?>
 <?$APPLICATION->IncludeComponent(
 	"bitrix:catalog.section", 
 	"list_zayav", 

@@ -1,7 +1,15 @@
 <?
 require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
 $APPLICATION->SetTitle("Заявка детально");
-?><?$APPLICATION->IncludeComponent(
+?>
+
+<?$APPLICATION->IncludeComponent(
+	"bitrix:breadcrumb",
+	"",
+	Array(
+	)
+);?>
+<?$APPLICATION->IncludeComponent(
 	"bitrix:catalog.element",
 	"descus_detail",
 	Array(
@@ -11,12 +19,12 @@ $APPLICATION->SetTitle("Заявка детально");
 		"ELEMENT_CODE" => "",
 		"SECTION_ID" => "",
 		"SECTION_CODE" => $_REQUEST["SECTION_CODE"],
-		"PROPERTY_CODE" => array(0=>"PRICE",1=>"PHOTO",2=>"",),
+		"PROPERTY_CODE" => array(0=>"CITY",1=>"USER_NAME",2=>"PHONE",3=>"USER",4=>"PRICE",5=>"PHOTO",6=>"",),
 		"OFFERS_LIMIT" => "0",
 		"SECTION_URL" => "",
 		"DETAIL_URL" => "",
 		"SECTION_ID_VARIABLE" => "SECTION_ID",
-		"CACHE_TYPE" => "A",
+		"CACHE_TYPE" => "N",
 		"CACHE_TIME" => "36000000",
 		"CACHE_GROUPS" => "Y",
 		"META_KEYWORDS" => "-",
@@ -44,13 +52,16 @@ $APPLICATION->SetTitle("Заявка детально");
 		"LINK_IBLOCK_ID" => "",
 		"LINK_PROPERTY_SID" => "",
 		"LINK_ELEMENTS_URL" => "link.php?PARENT_ELEMENT_ID=#ELEMENT_ID#",
-		"PRODUCT_QUANTITY_VARIABLE" => "quantity"
+		"PRODUCT_QUANTITY_VARIABLE" => "quantity",
+		"SET_BROWSER_TITLE" => "Y",
+		"SET_META_KEYWORDS" => "Y",
+		"SET_META_DESCRIPTION" => "Y"
 	)
 );?><?$APPLICATION->IncludeComponent(
 	"sakharov:post.ancer",
 	"",
 	Array(
-			"IBLOCK_TYPE" => "z",
-			"IBLOCK_ID" => "6",
+		"IBLOCK_TYPE" => "z",
+		"IBLOCK_ID" => "6"
 	)
 );?><br><?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>

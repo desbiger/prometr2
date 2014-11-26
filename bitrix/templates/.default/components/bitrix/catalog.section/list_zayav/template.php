@@ -21,7 +21,7 @@
 		$img['src'] = (bool)$img['src'] ? $img['src'] : Section::factory($vol['IBLOCK_SECTION_ID'])->GetPicture();
 	?>
 	<div>
-		<span style = "font-size: 12px;"><?= $vol['DATE_CREATE'] ?></span>
+<!--		<span style = "font-size: 12px;">--><?//= $vol['DATE_CREATE'] ?><!--</span>-->
 
 		<div class = "inside">
 

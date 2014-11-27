@@ -28,7 +28,7 @@
 		$i      = 0;
 		?>
 		<? foreach ($var as $vol): ?>
-		<? if ($i++ < 5): ?>
+		<? if ($i++ < 3): ?>
 			<?$temp  = CIBlockSection::GetByID($vol['IBLOCK_SECTION_ID']);
 			$section = $temp->GetNext();?>
 			<?

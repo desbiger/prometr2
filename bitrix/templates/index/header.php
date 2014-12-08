@@ -64,13 +64,14 @@
 </head>
 <body>
 <? $APPLICATION->ShowPanel() ?>
+<?$APPLICATION->IncludeComponent("bitrix:system.auth.form", "auth_base", Array(
+		"REGISTER_URL" => "",
+		"FORGOT_PASSWORD_URL" => "",
+		"PROFILE_URL" => "",
+		"SHOW_ERRORS" => "N"
+));?>
 <div class = "general_content">
-	<?$APPLICATION->IncludeComponent("bitrix:system.auth.form", "auth_base", Array(
-			"REGISTER_URL" => "",
-			"FORGOT_PASSWORD_URL" => "",
-			"PROFILE_URL" => "",
-			"SHOW_ERRORS" => "N"
-	));?>
+
 	<div class = "left_column">
 		<a class = "logo" href = "/"></a>
 

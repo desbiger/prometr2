@@ -7,9 +7,21 @@
 	$email = $arResult['USER']['EMAIL'];
 	$name  = $arResult['USER']['NAME'];
 	$phone = $arResult['USER']['PERSONAL_PHONE'];
-	$phone = $arResult['USER']['PERSONAL_PHONE'];
 ?>
-<!--<pre>--><? //print_r($arResul['USER'])?><!--</pre>-->
+<? $regions = City::factory()
+		->GetRegions();
+array_unshift($regions,array('region_id'=>'','name'=>'Выбирите регион'))?>
+
+<script type = "text/javascript">
+	$(function () {
+		$('#region').change(function () {
+			$.post('/ajax/city.php?region_id=' + $(this).val(), function (data) {
+				$('#city').html(data);
+			});
+		});
+	});
+</script>
+
 <h2>Новая заявка</h2>
 <form action = "" method = "post">
 	<table class = "new_zayav">
@@ -28,14 +40,14 @@
 			<td><input type = "text" name = "phone" value = "<?= $_POST['phone'] ?>"/></td>
 		</tr>
 		<tr>
+			<td>Регион</td>
+			<td><?= City::ToSelect($regions, 'region_id', 'name', 'region', 'id="region"') ?></td>
+		</tr>
+		<tr>
 			<td>Город</td>
 			<td>
-				<select name = "city" id = "">
-					<? foreach (City::factory()
-							            ->GetList() as $key => $city): ?>
-						<option value = "<?= $key ?>"><?= $city ?></option>
-					<? endforeach ?>
-				</select>
+				<span id = "city">
+				</span>
 			</td>
 		</tr>
 		<tr>

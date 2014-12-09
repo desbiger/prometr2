@@ -3,7 +3,6 @@
 		die();
 	}
 
-	//	var_dump($arResult);
 	$email = $arResult['USER']['EMAIL'];
 	$name  = $arResult['USER']['NAME'];
 	$phone = $arResult['USER']['PERSONAL_PHONE'];
@@ -21,13 +20,14 @@ array_unshift($regions,array('region_id'=>'','name'=>'Выбирите реги�
 		});
 	});
 </script>
-
+<?print_r($arResult['ERRORS'])?>
 <h2>Новая заявка</h2>
 <form action = "" method = "post">
 	<table class = "new_zayav">
 		<tr>
 			<td>Ваше имя</td>
-			<td><input type = "text" name = "name" value = "<?= $_POST['name'] ?>"/></td>
+			<td><span class="error"><?=$arResult['ERROR']['NAME']?></span>
+				<input type = "text" name = "name" value = "<?= $_POST['name'] ?>"/></td>
 		</tr>
 		<? if (!$arResult['USER']['ID']): ?>
 			<tr>

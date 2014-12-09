@@ -17,7 +17,7 @@
 				$pass = User::GenPass();
 				if($new_user = User::Register($_POST['email'],$pass)){
 					$USER->Login($_POST['email'],$pass);
-					Diclare::init()->Add($new_user);
+					$arResult['ERRORS'] = Diclare::init()->Add($new_user);
 				};
 			};
 		}

@@ -37,7 +37,7 @@
 				LocalRedirect('/' . $code . '/' . $id . '/');
 			}
 			else {
-				print_r($el->LAST_ERROR);
+				return $el->LAST_ERROR;
 			}
 
 		}

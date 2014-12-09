@@ -63,13 +63,23 @@
 	</script>
 </head>
 <body>
+
 <? $APPLICATION->ShowPanel() ?>
+<div class="top_menu">
+	<ul>
+		<li><a href = "">Список мастеров</a></li>
+		<li><a href = ""> О нас </a></li>
+		<li><a href = "">Контакты</a></li>
+		<li><a href = "">Прочее</a></li>
+	</ul>
+</div>
 <?$APPLICATION->IncludeComponent("bitrix:system.auth.form", "auth_base", Array(
 		"REGISTER_URL" => "",
 		"FORGOT_PASSWORD_URL" => "",
 		"PROFILE_URL" => "",
 		"SHOW_ERRORS" => "N"
 ));?>
+
 <div class = "general_content">
 
 	<div class = "left_column">

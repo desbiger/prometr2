@@ -30,7 +30,7 @@
 		->Fetch() ?>
 
 <?
-	$ga = CIBlockElement::GetList(null, array(
+	$ga       = CIBlockElement::GetList(null, array(
 			'IBLOCK_ID' => 7,
 			'PROPERTY_USER' => $user['ID']
 	));
@@ -42,24 +42,28 @@
 	}
 ?>
 <!--<pre>--><? //print_r($user)?><!--</pre>-->
-<div class = "stro header_block">Личный кабинет</div>
-<div class = "cabinet_div">
-
-
-	<ul class = "top_menu">
-
-		<li class = "current">Личные данные</li>
-		<li>Фотогалереи</li>
-
-
-		<li>Сообщения</li>
-		<li>Финансы</li>
-
+<h2>Личный кабинет</h2>
+<div class = "tabs">
+	<ul class = "tabNavigation">
+		<li>
+			<a href = "#personal">Личные данные</a>
+		</li>
+		<li>
+			<a href = "#posts">мои объяления</a>
+		</li>
+		<li>
+			<a href = "#photos">Фотогалереи</a>
+		</li>
+		<li>
+			<a href = "#messages">Сообщения</a>
+		</li>
+		<li>
+			<a href = "#money">Финансы</a>
+		</li>
 	</ul>
+	<hr style="margin-top: -8px; border:none; border-top: 1px solid lightgray;margin-bottom: 17px"/>
 
-	<div class = "box visible">
-
-
+	<div id="personal">
 		<form id = "myForm" method = "post" enctype = "multipart/form-data">
 			<table class = "new_zayav">
 				<tr>
@@ -96,7 +100,10 @@
 		</form>
 
 	</div>
-	<div class = "box">
+	<div id="posts">
+		<h2>Мои объявления</h2>
+	</div>
+	<div id="photos">
 		<!--		<pre>--><? //print_r($gallerys)?><!--</pre>-->
 		<? if (count($gallerys)): ?>
 			<? foreach ($gallerys as $g): ?>
@@ -108,7 +115,7 @@
 								'height' => 100
 						), BX_RESIZE_IMAGE_EXACT);
 						$big_img = CFile::GetPath($photo)?>
-						<a rel="rel" class="fancy" href = "<?= $big_img ?>">
+						<a rel = "rel" class = "fancy" href = "<?= $big_img ?>">
 							<img src = "<?= $img['src'] ?>" alt = ""/>
 						</a>
 					<? endforeach ?>
@@ -116,10 +123,11 @@
 			<? endforeach ?>
 		<? endif ?>
 	</div>
-	<div class = "box">
+
+	<div id="messages">
 		234
 	</div>
-	<div class = "box">
+	<div id="money">
 		345
 	</div>
 </div>

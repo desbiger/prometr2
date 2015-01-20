@@ -13,6 +13,7 @@
 	<link rel = "stylesheet" href = "/bitrix/templates/index/fancybox/jquery.fancybox-1.3.4.css">
 
 	<script type = "text/javascript" src = "/bitrix/templates/index/js/jquery-1.7.min.js"></script>
+	<script type = "text/javascript" src = "/bitrix/templates/index/js/tabs.js"></script>
 	<script type = "text/javascript" src = "/bitrix/templates/index/js/jquery.checkbox.js"></script>
 	<script type = "text/javascript" src = "/bitrix/templates/index/fancybox/jquery.fancybox-1.3.4.pack.js"></script>
 	<script type = "text/javascript" src = "/bitrix/templates/index/js/jquery-ui-1.7.3.custom.min.js"></script>

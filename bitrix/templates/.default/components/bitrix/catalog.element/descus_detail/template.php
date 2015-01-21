@@ -1,51 +1,25 @@
-<? if (!defined("B_PROLOG_INCLUDED") || B_PROLOG_INCLUDED !== true) {
-	die();
-}
-
-
-?>
-<!--<pre>--><? //print_r($arResult)?><!-- <pre>-->
-<div class = "list_zayav">
-	<h2><?= $arResult['NAME'] ?></h2>Размещено: <?= $arResult['DATE_CREATE'] ?>
-	<hr>
-	<? if ($arResult['PROPERTIES']['PHOTO']['VALUE']): ?>
-		<? $img = CFile::ResizeImageGet($arResult['PROPERTIES']['PHOTO']['VALUE'], array(
-				"width" => 200,
-				"height" => 200
-		)) ?>
-	<? else: ?>
-		<? $img['src'] = Section::factory($arResult['IBLOCK_SECTION_ID'])
-				->GetPicture() ?>
-	<?endif ?>
-	<div class = "img">
-		<? if ($arResult['PROPERTIES']['PHOTO']['VALUE']): ?>
-			<a class = "fancy" href = "<?= CFile::GetPath($arResult['PROPERTIES']['PHOTO']['VALUE']) ?>">
-				<img src = "<?= $img['src'] ?>"/>
-			</a>
-		<? else: ?>
-			<img src = "<?= $img['src'] ?>"/>
-		<?endif ?>
-	</div>
-	<? foreach ($arResult['PROPERTIES'] as $key => $value): ?>
-		<? if ($value['VALUE'] != '' && $key != "PHOTO"): ?>
-			<b><?= $value['NAME'] ?>:</b> <? if ($key == "USER") {
-				$res = CUser::GetByID($value['VALUE']);
-				$us  = $res->Fetch();
-				echo $us['LOGIN'];
-			}
-			elseif ($value['NAME'] == 'Стоимость') {
-				echo $value['VALUE'] . " руб";
-			}
-			elseif ($value['NAME'] == 'Город') {
-				echo City::factory($value['VALUE']);
-			}else{
-				echo $value['VALUE'];
-			}
-			?><br>
-		<? endif ?>
-	<? endforeach ?>
-	<br>
-	<b>Описание заявки:</b>
-	<?= $arResult['DETAIL_TEXT'] ?>
-</div>
-<hr>
+<?
+	$not_show         = array(
+			'PHOTO',
+			'STATUS',
+			'PHONE',
+			'USER',
+	);
+	$access           = $arResult['PROPERTIES']['STATUS']['VALUE'] ? $arResult['PROPERTIES']['STATUS']['VALUE'] : 70;
+	$user_access      = $USER->GetByID($USER->GetID())
+			->Fetch();
+	$user_access      = $user_access['UF_STATUS'] ? $user_access['UF_STATUS']: 70;
+	$user_access_name = CIBlockElement::GetByID($user_access)
+			->Fetch();
+	if (!$USER->GetID()) {
+		include('variants/default.php');
+	}
+	elseif ($USER->GetID() == $arResult['PROPERTIES']['USER']['VALUE']) {
+		include('variants/owner.php');
+	}
+	elseif ($user_access >= $access) {
+		include('variants/with_contacts.php');
+	}
+	elseif ($user_access < $access) {
+		include('variants/without_contacts.php');
+	}

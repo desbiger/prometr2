@@ -37,3 +37,7 @@ hr{
 .list_zayav .img{
     float: right;
 }
+
+.detail_text{
+    font-size: 14px;
+}

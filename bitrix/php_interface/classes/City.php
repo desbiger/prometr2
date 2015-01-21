@@ -11,19 +11,17 @@
 			return new City($city_id);
 		}
 
-		function __construct()
-		{
-			$this->DB = $GLOBALS['DB'];
-		}
 
 		function City($city_id)
 		{
-			if ($city_id) {
-				CModule::IncludeModule('iblock');
-				$c          = CIBlockELement::GetByID($city_id)
-						->Fetch();
-				$this->city = $c;
+			$this->DB = $GLOBALS['DB'];
+			if($city_id){
+				$t        = $this->DB->Query('SELECT * FROM city WHERE city.`city_id` = ' . $city_id);
+				while ($res = $t->Fetch()) {
+					$this->city['NAME'] = $res['name'];
+				}
 			}
+
 		}
 
 		function __toString()
@@ -51,19 +49,21 @@
 			}
 			return $result;
 		}
-		function GetCitysByRegion($region_id){
+
+		function GetCitysByRegion($region_id)
+		{
 			$result = array();
-			$t      = $this->DB->Query('SELECT * FROM city WHERE city.`region_id` = '.$region_id);
+			$t      = $this->DB->Query('SELECT * FROM city WHERE city.`region_id` = ' . $region_id);
 			while ($res = $t->Fetch()) {
 				$result[] = $res;
 			}
 			return $result;
 		}
 
-		static function ToSelect($array, $value_field, $name_field, $select_name,$attributes = null)
+		static function ToSelect($array, $value_field, $name_field, $select_name, $attributes = null)
 		{
 
-			$str = '<select name="' . $select_name . '" '.$attributes.'>';
+			$str = '<select name="' . $select_name . '" ' . $attributes . '>';
 			foreach ($array as $vol) {
 				$str .= "<option value='" . $vol[$value_field] . "'>" . $vol[$name_field] . "</option>";
 			}
